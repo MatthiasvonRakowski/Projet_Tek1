@@ -1,0 +1,53 @@
+#!/bin/python3
+# EPITECH PROJECT, 2022
+# 105torus
+# File description:
+# main
+#
+
+import sys
+from check_error_args import *
+from newtons_method import *
+from bisection_method import *
+from secant_method import *
+
+
+def print_info():
+    with open("info_project.txt", 'r') as files:
+        files = files.readlines()
+    for lines in files:
+        print(lines, end='')
+    sys.exit(0)
+
+
+def print_list(args, precision, list_nbr):
+    if 0 > args[len(args) - 1] or args[len(args) - 1] > 1:
+        exit(84)
+    for i in range(len(args)):
+        if abs(args[i] * 10**precision - int(args[i] * 10**precision)) < 1e-6:
+            print("x =", round(args[i], precision))
+        else:
+            print(f"x = {round(args[i], precision):.{precision}f}")
+
+
+def main():
+    args = sys.argv
+    if len(args) != 2 and len(args) != 8:
+        exit(84)
+    if args[1] == "-h":
+        print_info()
+    check_error_args(args)
+    if args[0] == 1:
+        del args[0]
+        print_list(bisection_method(args), args[5], args)
+    elif args[0] == 2:
+        del args[0]
+        print_list(newtons_method(args), args[5], args)
+    elif args[0] == 3:
+        del args[0]
+        print_list(secant_method(args), args[5], args)
+    sys.exit(0)
+
+
+if __name__ == "__main__":
+    main()

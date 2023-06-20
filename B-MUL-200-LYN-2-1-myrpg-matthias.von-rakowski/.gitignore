@@ -1,0 +1,14 @@
+*.o
+*.a
+*.pdf
+.vscode
+a.out
+coding-style-reports.log
+run.sh
+valgrind-out.txt
+followup
+test
+my_rpg
+*.zip
+rpg.serv
+.idea

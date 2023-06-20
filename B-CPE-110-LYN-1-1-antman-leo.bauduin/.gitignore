@@ -1,0 +1,13 @@
+*/.idea/
+/.idea/
+/.my_idea/
+*.o
+*.a
+*.pdf
+*.gcno
+*.gcda
+*.pl
+/.bootstrap/
+/tests_file_students/
+/antman/antman
+/giantman/giantman

@@ -1,0 +1,6 @@
+*.txt
+src/*.o
+lib/*.o
+lib/*.a
+my_sokoban
+.gitignor

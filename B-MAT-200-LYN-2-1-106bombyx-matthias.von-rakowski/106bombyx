@@ -1,0 +1,45 @@
+#!/usr/bin/python3
+
+from sys import argv
+import display_model_evolution as dsp
+import display_every_possibilities as dep
+
+
+def assert_value_args(k=None, i0=None, i1=None, n=None):
+    if k is not None and ((k < 1) or (k > 4)):
+        exit(84)
+    if i0 is not None and i0 < 1:
+        exit(84)
+    if i1 is not None and ((i1 < 1) or (i0 > i1)):
+        exit(84)
+    if n is not None and n < 0:
+        exit(84)
+
+
+def valid_args():
+    if len(argv) <= 2 or len(argv) > 4:
+        exit(84)
+    try:
+        if len(argv) == 3:
+            n = float(argv[1])
+            k = float(argv[2])
+            assert_value_args(k=k, n=n)
+        else:
+            n = float(argv[1])
+            i0 = int(argv[2])
+            i1 = int(argv[3])
+            assert_value_args(i0=i0, i1=i1, n=n)
+    except ValueError:
+        exit(84)
+
+
+def main():
+    valid_args()
+    if len(argv) == 3:
+        dsp.display_model_evolution()
+    else:
+        dep.display_every_possibilities()
+
+
+if __name__ == "__main__":
+    main()

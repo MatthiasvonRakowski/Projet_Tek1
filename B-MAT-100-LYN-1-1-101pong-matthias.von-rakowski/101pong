@@ -1,0 +1,75 @@
+#!/usr/bin/python3
+## EPITECH PROJECT, 2022
+## pong
+## File description:
+## pong result
+## 
+
+import sys
+import math as ma
+
+def cal_angle(my_list, xv, yv, zv):
+    norme = ma.sqrt(xv*xv + yv*yv + zv*zv)
+    if norme == 0:
+        exit(84)
+    return ma.asin(zv/norme)
+
+def position(my_list, z0, n):
+    angle = 361
+    xv = my_list[0]
+    yv = my_list[1]
+    zv = my_list[2]
+    for i in range(n):
+        my_list[3] += xv
+        my_list[4] += yv
+        my_list[5] += zv
+        if z0 * my_list[5] <= 0:
+            angle = cal_angle(my_list, xv, yv, zv)
+    print("(%.2f, %.2f, %.2f)" % (my_list[3], my_list[4], my_list[5]))
+    if angle < 0:
+        angle *= -1
+    if angle == 361:
+        print("The ball won't reach the paddle.")
+    else:
+        print("The incidence angle is:\n%.2f degrees" % (angle * 180 / ma.pi))
+
+def my_put_info():
+    print("USAGE")
+    print("    ./101pong x0 y0 z0 xi y1 z1 n")
+    print("DESCRIPTION")
+    print("    x0 ball abscissa at time t - 1")
+    print("    y0 ball ordinate at time t - 1")
+    print("    z0 ball altitude at time t - 1")
+    print("    x1 ball abscissa at time t")
+    print("    y1 ball ordinate at time t")
+    print("    z1 ball altitude at time t")
+    print("    n time shift (greater than or equal to zero, integer")
+
+
+def main():
+    if len(sys.argv) != 8 and len(sys.argv) != 2:
+        exit(84)
+    if sys.argv[1][0] == '-' and sys.argv[1][1] == 'h' and len(sys.argv) == 2:
+            my_put_info()
+            exit(0)
+    try:
+        x0 = float(sys.argv[1])
+        y0 = float(sys.argv[2])
+        z0 = float(sys.argv[3])
+        x1 = float(sys.argv[4])
+        y1 = float(sys.argv[5])
+        z1 = float(sys.argv[6])
+        n = int (sys.argv[7])
+    except ValueError:
+        exit(84)
+    if n <= 0:
+        exit(84)
+    my_list: list = [ (x1 - x0), (y1 - y0), (z1 - z0), x1, y1, z1 ]
+    print("The velocity vector of the ball is:")
+    print("(%.2f, %.2f, %.2f)" % (my_list[0], my_list[1], my_list[2]))
+    print("At time t + %u, ball coordinates will be:" % n)
+    position(my_list, z1, n)
+    exit(0)
+
+if __name__ == "__main__":
+    main()

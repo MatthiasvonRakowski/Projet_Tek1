@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [[ $# -eq 0 ]]; then
+    echo "No arguments were passed to the script."
+    exit 1
+fi
+
+./antman/antman "$1" "$2" > text.txt
+./giantman/giantman text.txt "$2" > new_text.txt
+diff -qs "$1" new_text.txt
+taille1=$(du -b "$1" | awk '{print $1}')
+taille2=$(du -b text.txt | awk '{print $1}')
+porcentage=$((taille2 * 100 / taille1))
+
+if [[ $taille2 -le $taille1 ]]; then
+	echo "the size of antman is $porcentage% of $1"
+else
+	echo "the size of antman is bigger"
+fi
+unset taille2
+unset taille1
+rm text.txt
+rm new_text.txt

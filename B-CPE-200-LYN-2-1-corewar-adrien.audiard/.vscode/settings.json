@@ -1,0 +1,17 @@
+{
+    "files.associations": {
+        "my.h": "c",
+        "struct.h": "c",
+        "asm.h": "c",
+        "sstream": "cpp",
+        "corewar.h": "c",
+        "stdlib.h": "c",
+        "initialisation.h": "c",
+        "tools.h": "c",
+        "war.h": "c",
+        "op.h": "c",
+        "instruction.h": "c",
+        "stdio.h": "c",
+        "fcntl.h": "c"
+    }
+}

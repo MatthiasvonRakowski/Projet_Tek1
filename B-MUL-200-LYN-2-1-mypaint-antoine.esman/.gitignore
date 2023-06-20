@@ -1,0 +1,9 @@
+.vscode
+libmy.a
+a.out
+run.sh
+my_paint
+valgrind-out.txt
+*.o
+*.jpg
+*.png

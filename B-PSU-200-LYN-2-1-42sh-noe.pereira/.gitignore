@@ -1,0 +1,49 @@
+##
+## .gitignore for my_rpg
+##
+
+# Cmake
+CMakeLists.txt
+cmake-build-debug
+
+# main
+42sh
+
+## Binary
+**/*.out
+**/*.gcno
+**/*.gcda
+
+# Compiled Object files
+**/*.slo
+**/*.lo
+**/*.o
+**/*.a
+**/*.obj
+**/*.gch
+**/*.old
+**/*~
+
+# test files
+**/*.s
+**/*.S
+**/*.asm
+
+# .gitignore
+!**/.gitignore
+
+# trash
+**/*test*
+!tests/
+**/*.log
+**/*valgrind*.log.core.*
+.vscode
+**/*.txt
+**/*.log
+**/vgcore.*
+**/*.zip
+**/*gdb*
+**/*.gz
+**/*.tgz
+**/*.tar
+.idea/

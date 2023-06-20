@@ -1,0 +1,7 @@
+*.o
+*.a
+mylib/*.o
+mylib/*.a
+mylib/src/*.o
+mylib/src/libmy.a
+my_ls

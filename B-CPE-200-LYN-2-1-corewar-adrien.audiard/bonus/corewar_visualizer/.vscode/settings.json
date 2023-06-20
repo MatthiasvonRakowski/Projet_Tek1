@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "free.h": "c",
+        "initialisation.h": "c",
+        "war.h": "c",
+        "corewar.h": "c",
+        "struct.h": "c",
+        "stdlib.h": "c",
+        "my.h": "c",
+        "unistd.h": "c",
+        "stdio.h": "c",
+        "ncurses.h": "c",
+        "tools.h": "c",
+        "visual.h": "c",
+        "instruction.h": "c",
+        "time.h": "c",
+        "typeinfo": "c",
+        "processes.h": "c",
+        "get_color.C": "cpp"
+    }
+}
